@@ -1,0 +1,7 @@
+[book]
+authors = ["Khanh Ngo", "San Nguyen"]
+language = "en"
+multilingual = true
+src = "src"
+title = "Scyna Documentation"
+description = "Welcome to the Scyna Documentation site!"
