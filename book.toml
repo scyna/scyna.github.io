@@ -5,3 +5,5 @@ multilingual = true
 src = "src"
 title = "Scyna Documentation"
 description = "Welcome to the Scyna Documentation site!"
+[output.html]
+[output.markdown]
