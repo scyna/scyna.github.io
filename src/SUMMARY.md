@@ -2,18 +2,17 @@
 
 [Introduction](./introduction.md)
 
-# Architecture
+- [Scyna by Example](./example/overview.md)
+  - [Hello World](./example/example-1.md)
+  - [Làm việc với Service](./example/example-2.md)
+  - [Làm việc với Signal]()
+  - [Làm việc với Event]()
 
-- [Overview](./architecture/overview.md)
-- [Concept](./architecture/concept.md)
-- [Model](./architecture/model.md)
-- [FAQs](./architecture/faqs.md)
-
-# Get Started
-- [Conventions](./conventions.md)
-
-# Release Notes
-
+- [SDKs](./sdk/overview.md)
+  - [Golang]()
+  - [Java]()
+  - [C#]()
+- [Deploy]()
 -----------
 
 [Feedback](./feedback.md)

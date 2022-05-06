@@ -1,8 +1,8 @@
-## Welcome to the Scyna documentation site!
+# Welcome to the Scyna documentation site!
+--- 
 
-[TODO]
+> ### Scyna là gì? 
+> Scyna là một platform cho phép người dùng sử dụng để xây dựng hệ thống tối ưu.
 
-> This is short description
-
-![The Rust Logo](images/logo.png)
+![The Scyna Logo](images/logo.png)
 

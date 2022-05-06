@@ -1,7 +1,33 @@
 [book]
 authors = ["Khanh Ngo", "San Nguyen"]
-language = "en"
+language = "vi"
 multilingual = true
 src = "src"
-title = "Scyna Documentation"
+#title = "Scyna Documentation"
 description = "Welcome to the Scyna Documentation site!"
+
+[output.html]
+input-404 = "not-found.md"
+
+[output.html.fold]
+enable = true
+level = 0
+
+[output.html.playground]
+editable = false
+line-numbers = true
+copyable = true
+copy-js = true
+runnable = false
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
+
+[output.html.print]
+enable = false
