@@ -1,6 +1,7 @@
 # Summary
 
 [Introduction](./introduction.md)
+- [Setup](./setup/develop.md)
 
 - [Scyna by Example](./example/overview.md)
   - [Hello World](./example/example-1.md)

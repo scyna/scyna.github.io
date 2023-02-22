@@ -5,6 +5,7 @@ Build the documentation
 ## Requirements
 
 - Git
+- Rust ([install](https://www.rust-lang.org/tools/install))
 - MDBook ([cargo](https://rust-lang.github.io/mdBook/guide/installation.html))
 
 ## Instructions
