@@ -1,19 +1,19 @@
 # Summary
 
-[Introduction](./introduction.md)
-- [Setup](./setup/develop.md)
+[Giới thiệu](./introduction.md)
 
-- [Scyna by Example](./example/overview.md)
-  - [Hello World](./example/example-1.md)
-  - [Làm việc với Service](./example/example-2.md)
-  - [Làm việc với Signal]()
-  - [Làm việc với Event]()
+[Scyna by Example](./example/overview.md)
+- [Hello World](./example/example-1.md)
 
-- [SDKs](./sdk/overview.md)
-  - [Golang]()
-  - [Java]()
-  - [C#]()
-- [Deploy]()
+[Cài đặt](./setup/develop.md)
+
+[SDKs](./sdk/overview.md)
+- [Golang]()
+- [Java]()
+- [C#]()
+
+[Deploy]()
+
 -----------
 
 [Feedback](./feedback.md)
