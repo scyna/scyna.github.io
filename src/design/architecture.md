@@ -1,4 +1,4 @@
-## Kiến trúc
+# Kiến trúc
  
 <p align="center"><img src="../images/scyna-concepts.png"  width="100%"></p>
 
