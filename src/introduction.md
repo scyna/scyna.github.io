@@ -1,5 +1,4 @@
-<p align="center"><img src="images/scyna.png"  width="100"></p> 
-
+# SCYNA
 ---
 
 **SCYNA** là một nền tảng phát triển phần mềm dựa trên kiến trúc Microservice và Event-Driven. Scyna xuất phát từ một dự án phát triển nền tảng nội bộ (Internal Developer Platform) thuộc Vin3S để dùng cho một số hệ thống của VinFast. Dự án kết thúc với một số kết quả nhất định đủ đáp ứng nhu cầu nội bộ. Tuy nhiên, team phát triển nhận thấy dự án còn nhiều vấn đề có thể cải tiến và nó có thể rất hữu ích cho cộng đồng Developer nên đã thành lập một dự án mới dưới hình thức nguồn mở trên github (https://github.com/scyna) với mục đích xây dựng lại một nền tảng mới đơn giản hơn, gọn nhẹ hơn, tận dụng được khả năng generic mới được Golang release ở version 1.18. Nền tảng mới cũng hướng đến hỗ trợ SDK cho các ngôn ngữ lập trình thông dụng như Java, C#, Python, C++,...
