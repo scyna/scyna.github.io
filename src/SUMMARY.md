@@ -22,7 +22,7 @@
   - [C#](setup/csharp.md)
   - [Deploy]()
 
-- [Design](./design/proxy.md)
+- [Architecture](design/architecture.md)
   - [Proxy](./design/proxy.md)
   - [Gateway](./design/gateway.md)
   - [ID Generator](./design/generator.md)
