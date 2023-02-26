@@ -3,16 +3,31 @@
 [Giới thiệu](./introduction.md)
 
 [Scyna by Example](./example/overview.md)
-- [Hello World](./example/example-1.md)
+- [Hello](./example/example-1.md)
+- [Account]()
+- [Transaction Script]()
+- [Vertical Slice]()
+- [Domain Driven Design]()
+- [Event Sourcing]()
+- [CQRS]()
+- [Resident Management System Project]()
 
 [Cài đặt](./setup/develop.md)
-
-[SDKs](./sdk/overview.md)
+- [Cài đặt chung]()
 - [Golang]()
 - [Java]()
 - [C#]()
 
-[Deploy]()
+[Thiết kế]()
+- [Gateway and Proxy]()
+- [ID Generator]()
+- [Trace/Log]()
+- [Scheduler]()
+
+[SDK]()
+- [Golang]()
+- [Java]()
+- [C#]()
 
 -----------
 
