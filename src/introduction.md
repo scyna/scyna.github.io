@@ -11,10 +11,43 @@ Scyna được xây dựng bằng Golang, sử dụng NATS và ScyllaDB làm n�
 
 Mục đích của Scyna là làm đơn giản hóa việc xây dựng các hệ thống phần mềm phân tán sử dụng Microservice và Event-Driven; tối ưu nguồn lực của doanh nghiệp khi có thể linh hoạt điều phối các developer có kỹ năng trên nhiều ngôn ngữ lập trình khác nhau; và hỗ trợ các khung kiến trúc tuân thủ Domain Driven Design, hỗ trợ phương pháp phát triển Test Driven Developement.
 
-## Kiến trúc
+## A. Kiến trúc
  
+ Kiến trúc của Scyna được mô tả ở hình bên dưới
 <p align="center">
 <img src="images/scyna-arch.png"  width="100%">
 </p>
+
+#### Engine
+
+[TODO]
+
+#### Command Bus
+
+[TODO]
+
+#### Event Bus
+
+[TODO]
+
+#### Proxy
+
+<p align="center">
+<img src="images/scyna-proxy.png"  width="100%">
+</p>
+
+#### Gateway
+
+<p align="center">
+<img src="images/scyna-gateway.png"  width="100%">
+</p>
+
+Khi Application đã được xác thực thì các luồng request được gửi đến Gateway hoạt động như sơ đồ bên dưới:
+
+<p align="center">
+<img src="images/scyna-gateway-2.png"  width="100%">
+</p>
+
+#### SDK
 
 ## 
