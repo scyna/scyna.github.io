@@ -53,10 +53,11 @@ Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement lo
 **test/hello_test.go**
 
 Endpoint `Hello` chỉ làm việc rất đơn giản là nhận 1 tên và trả lại lời chào với tên nhận được. Các rule sau cầ n được tuân thủ cho dữ liệu đầu vào:
-- `request.Name` phải không được rỗng
-- `request.Name` có độ dài từ 3 đến 50 ký tự
+- `Name` phải không được rỗng
+- `Name` có độ dài từ 3 đến 50 ký tự
 
 ```go
+
 func TestHello_Success(t *testing.T) {
 	scyna_test.EndpointTest(hello.HELLO_URL).
 		WithRequest(&proto.HelloRequest{Name: "Alice"}).
@@ -85,6 +86,7 @@ func TestHello_ShortName(t *testing.T) {
 		ExpectError(scyna.REQUEST_INVALID).
 		Run(t)
 }
+
 ```
 
 **test/add_test.go**
@@ -92,6 +94,7 @@ Endpoint `Add` trả về tổng của 2 số nguyên đầu vào. Nếu kết q
 
 
 ```go
+
 func TestAdd_Success(t *testing.T) {
 	scyna_test.EndpointTest(hello.ADD_URL).
 		WithRequest(&proto.AddRequest{A: 5, B: 73}).
@@ -105,6 +108,7 @@ func TestAdd_TooBig(t *testing.T) {
 		ExpectError(hello.ADD_RESULT_TOO_BIG).
 		Run(t)
 }
+
 ```
 
 
@@ -113,6 +117,7 @@ func TestAdd_TooBig(t *testing.T) {
 ##### [service/hello.go](https://github.com/scyna/example/blob/main/go/hello/service/hello.go)
 
 ```go
+
 func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
 	ctx.Info("Receive HelloRequest")
 
@@ -124,12 +129,14 @@ func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
 
 	return ctx.OK(&proto.HelloResponse{Content: "Hello " + request.Name})
 }
+
 ```
 
 ##### [service/add.go](https://github.com/scyna/example/blob/main/go/hello/service/add.go)
 
 
 ```go
+
 func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 	ctx.Info("Receive AddRequest")
 
@@ -140,4 +147,5 @@ func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 
 	return ctx.OK(&proto.AddResponse{Sum: sum})
 }
+
 ```
