@@ -35,12 +35,12 @@
 
 # Scyna by Design
 
-[Architecture](design/architecture.md)
-[Proxy](./design/proxy.md)
-[Gateway](./design/gateway.md)
-[ID Generator](./design/generator.md)
-[Trace/Log](./design/trace.md)
-[Scheduler](./design/scheduler.md)
+- [Architecture](design/architecture.md)
+- [Proxy](./design/proxy.md)
+- [Gateway](./design/gateway.md)
+- [ID Generator](./design/generator.md)
+- [Trace/Log](./design/trace.md)
+- [Scheduler](./design/scheduler.md)
 
 -----------
 
