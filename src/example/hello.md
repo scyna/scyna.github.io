@@ -1,14 +1,19 @@
-# Hello Example
+# Example `Hello`
+Ví dụ này giúp bạn nắm được cách xây dựng một microservice đơn giản với Scyna:
+- Sử dụng `protobuf` để định nghĩa API cho các endpoint của microservice
+- Viết test cho các endpoint
+- Implement logic cho các endpoint
+- Deploy
 
-Ví dụ này giúp các bạn làm quen với việc tạo xây dựng một microservice đơn giản dựa sử dụng Scyna. Các bạn cần cài đặt môi trường runtime của Scyna để có thể chạy được các ví dụ. 
+Ở ví dụ này chúng ta xây dựng một microservice thực hiện 2 endpoint sau
+- `Hello`: nhận vào tên một người và trả lại lời chào người đó
+- `Add`: nhận vào 2 giá trị nguyên và trả ra tổng của 2 số nguyên đó
 
-Source code của ví dụ https://github.com/scyna/example/tree/main/go/hello
+Chú ý: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn [tại đây](../setup/golang.md).
 
-### 1. API
+### A. Endpoint Hello
 
-Ở ví dụ này chúng ta xây dựng một microservice thực hiện 2 endpoint đơn giản nhất là **Hello** và **Add**. Protobuf định nghĩa hai endpoint này được lưu trong file [proto/hello.proto](https://github.com/scyna/example/blob/main/go/hello/proto/hello.proto)
-
-**Hello**
+#### 1. API
 
 ```protobuf
 message HelloRequest
@@ -22,22 +27,7 @@ message HelloResponse
 }
 ```
 
-**Add**
-
-```protobuf
-message AddRequest
-{
-  int32 a = 1;
-  int32 b = 2;
-}
-
-message AddResponse
-{
-  int32 sum = 1;
-}
-```
-
-Lệnh để dịch file `proto` sang code của Go:
+Định nghĩa API sẽ được lưu trong file `proto/hello.proto`, lệnh để dịch file `proto` sang code của Go:
 
 ```
 protoc -I=. --go_out=. hello.proto
@@ -45,17 +35,14 @@ protoc -I=. --go_out=. hello.proto
 
 Lệnh này sẽ sinh ra file `proto/hello.pb.go`
 
-## 2. Test
 
-Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement logic.
+#### 2. Test
 
-#### Hello
-
-Endpoint `Hello` chỉ làm việc rất đơn giản là nhận 1 tên và trả lại lời chào với tên nhận được. Các rule sau cầ n được tuân thủ cho dữ liệu đầu vào:
+Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement logic. Endpoint `Hello` chỉ làm việc rất đơn giản là nhận một tên và trả lại lời chào với tên nhận được. Các rule sau cần được tuân thủ cho dữ liệu đầu vào:
 - `Name` phải không được rỗng
 - `Name` có độ dài từ 3 đến 50 ký tự
 
-Scyna hỗ trợ `EndpointTest` để chúng ta có thể viết test cho các endpoint implement trên Scyna. Test cho `Hello` sẽ được lưu trong file `test/hello_test.go` và có nội dung cơ bản sau.
+Chúng ta sẽ viết các test case để kiểm định các rule trên sử dụng `EndpointTest` được Scyna hỗ trợ để viết test case cho các endpoint implement trên Scyna. Test cho `Hello` sẽ được lưu trong file `test/hello_test.go` và có nội dung cơ bản sau.
 
 ```go
 
@@ -89,7 +76,42 @@ func TestHello_ShortName(t *testing.T) {
 }
 
 ```
-#### Add
+
+#### 3. Implement
+
+```go
+
+func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
+	ctx.Info("Receive HelloRequest")
+
+	length := len(request.Name)
+	if length < 3 || length > 50 {
+		return scyna.REQUEST_INVALID
+	}
+
+	return ctx.OK(&proto.HelloResponse{Content: "Hello " + request.Name})
+}
+
+```
+
+### B. Endpoint Add
+
+#### 1. API
+
+```protobuf
+message AddRequest
+{
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message AddResponse
+{
+  int32 sum = 1;
+}
+```
+
+#### 2. Test
 
 Endpoint `Add` trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi `ADD_RESULT_TOO_BIG`. Test cho endpoint `Add` như sau:
 
@@ -111,29 +133,7 @@ func TestAdd_TooBig(t *testing.T) {
 
 ```
 
-
-## 3. Code
-
-##### [service/hello.go](https://github.com/scyna/example/blob/main/go/hello/service/hello.go)
-
-```go
-
-func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
-	ctx.Info("Receive HelloRequest")
-
-	length := len(request.Name)
-
-	if length < 3 || length > 50 {
-		return scyna.REQUEST_INVALID
-	}
-
-	return ctx.OK(&proto.HelloResponse{Content: "Hello " + request.Name})
-}
-
-```
-
-##### [service/add.go](https://github.com/scyna/example/blob/main/go/hello/service/add.go)
-
+#### 3. Implement
 
 ```go
 
@@ -149,3 +149,38 @@ func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 }
 
 ```
+
+### C. Implement `main.go` và deploy
+
+#### 1. Main function
+
+```go
+const MODULE_CODE = "scyna_test"
+
+func main() {
+	scyna.RemoteInit(scyna.RemoteConfig{
+		ManagerUrl: "http://localhost:8081",
+		Name:       MODULE_CODE,
+		Secret:     "123456",
+	})
+	defer scyna.Release()
+
+	scyna.RegisterEndpoint(service.ADD_URL, service.AddHandler)
+	scyna.RegisterEndpoint(service.HELLO_URL, service.HelloHandler)
+
+	scyna.Start()
+}
+
+```
+
+#### 1. Setup script
+
+TBD
+
+#### 2. Docker container
+
+TBD
+
+### D. Reference
+
+- Source code: https://github.com/scyna/example/tree/main/go/hello
