@@ -143,7 +143,7 @@ func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 }
 ```
 
-## 3. Implement `main.go` và deploy
+## 3. Deployment
 
 #### Main function
 
@@ -167,7 +167,19 @@ func main() {
 
 #### Setup script
 
-TBD
+Setup script được viết bằng `go` để tạo master data của microservice (module) và client trên Scyna Engine.
+
+```go
+func main() {
+	scyna_setup.Init()
+	scyna_setup.NewModule("ex_hello", "123456").Build()
+
+	scyna_setup.NewClient("hello_test", "123456").
+		UseEndpoint(service.ADD_URL).
+		UseEndpoint(service.HELLO_URL).
+		Build()
+}
+```
 
 #### Docker container
 
@@ -176,3 +188,4 @@ TBD
 ## 4. Reference
 
 - Source code: https://github.com/scyna/example/tree/main/go/hello
+- Setup for Golang developer
