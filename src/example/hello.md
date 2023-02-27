@@ -11,9 +11,9 @@ Ví dụ này giúp bạn nắm được cách xây dựng một microservice đ
 
 Chú ý: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn [tại đây](../setup/golang.md).
 
-### A. Endpoint Hello
+## 1. Endpoint Hello
 
-#### 1. API
+#### API
 
 ```protobuf
 message HelloRequest
@@ -36,7 +36,7 @@ protoc -I=. --go_out=. hello.proto
 Lệnh này sẽ sinh ra file `proto/hello.pb.go`
 
 
-#### 2. Test
+#### Test
 
 Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement logic. Endpoint `Hello` chỉ làm việc rất đơn giản là nhận một tên và trả lại lời chào với tên nhận được. Các rule sau cần được tuân thủ cho dữ liệu đầu vào:
 - `Name` phải không được rỗng
@@ -75,7 +75,7 @@ func TestHello_ShortName(t *testing.T) {
 }
 ```
 
-#### 3. Implement
+#### Implement
 
 ```go
 func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
@@ -90,9 +90,9 @@ func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
 }
 ```
 
-### B. Endpoint Add
+## 2. Endpoint Add
 
-#### 1. API
+#### API
 
 ```protobuf
 message AddRequest
@@ -107,7 +107,7 @@ message AddResponse
 }
 ```
 
-#### 2. Test
+#### Test
 
 Endpoint `Add` trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi `ADD_RESULT_TOO_BIG`. Test cho endpoint `Add` như sau:
 
@@ -128,7 +128,7 @@ func TestAdd_TooBig(t *testing.T) {
 
 ```
 
-#### 3. Implement
+#### Implement
 
 ```go
 func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
@@ -143,9 +143,9 @@ func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 }
 ```
 
-### C. Implement `main.go` và deploy
+## 3. Implement `main.go` và deploy
 
-#### 1. Main function
+#### Main function
 
 ```go
 const MODULE_CODE = "scyna_test"
@@ -165,14 +165,14 @@ func main() {
 }
 ```
 
-#### 1. Setup script
+#### Setup script
 
 TBD
 
-#### 2. Docker container
+#### Docker container
 
 TBD
 
-### D. Reference
+## 4. Reference
 
 - Source code: https://github.com/scyna/example/tree/main/go/hello
