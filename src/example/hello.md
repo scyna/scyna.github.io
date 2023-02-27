@@ -27,7 +27,7 @@ message HelloResponse
 
 Định nghĩa API sẽ được lưu trong file `proto/hello.proto`, lệnh để dịch file `proto` sang code của Go:
 
-```
+```bash
 protoc -I=. --go_out=. hello.proto
 ```
 

@@ -2,18 +2,37 @@
 
 [Introdution](./introduction.md)
 
-- [Scyna by Example](./example/overview.md)
+## Examples
+
+- [Example in Golang](./example/overview.md)
   - [Hello](./example/hello.md)
   - [Account](./example/account.md)
   - [Transaction Script](./example/transaction-script.md)
   - [Vertical Slice](./example/vertical-slice.md)
   - [Domain Driven Design](./example/ddd.md)
   - [CQRS](./example/cqrs.md)
-  - [Resident Management System](example/resident/resident.md)
-    - [Building]()
-    - [Employee]()
-    - [Transaction]()
-    - [Asset]()
+
+- [Example in Java]()
+  - [Hello](./example/hello.md)
+  - [Account](./example/account.md)
+  - [Transaction Script](./example/transaction-script.md)
+  - [Vertical Slice](./example/vertical-slice.md)
+  - [Domain Driven Design](./example/ddd.md)
+  - [CQRS](./example/cqrs.md)
+
+- [Example in C#]()
+  - [Hello]()
+  - [Account]()
+  - [Transaction Script]()
+  - [Vertical Slice]()
+  - [Domain Driven Design]()
+  - [CQRS]()
+
+- [Resident Management System](example/resident/resident.md)
+  - [Building]()
+  - [Employee]()
+  - [Transaction]()
+  - [Asset]()
 
 - [Setup](./setup/develop.md)
   - [General](setup/general.md)
