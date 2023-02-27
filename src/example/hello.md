@@ -20,7 +20,6 @@ message HelloResponse
 {
   string content = 1;
 }
-
 ```
 
 **Add**
@@ -46,15 +45,17 @@ protoc -I=. --go_out=. hello.proto
 
 Lệnh này sẽ sinh ra file `proto/hello.pb.go`
 
-## 2. Unit test
+## 2. Test
 
 Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement logic.
 
-**test/hello_test.go**
+#### Hello
 
 Endpoint `Hello` chỉ làm việc rất đơn giản là nhận 1 tên và trả lại lời chào với tên nhận được. Các rule sau cầ n được tuân thủ cho dữ liệu đầu vào:
 - `Name` phải không được rỗng
 - `Name` có độ dài từ 3 đến 50 ký tự
+
+Scyna hỗ trợ `EndpointTest` để chúng ta có thể viết test cho các endpoint implement trên Scyna. Test cho `Hello` sẽ được lưu trong file `test/hello_test.go` và có nội dung cơ bản sau.
 
 ```go
 
@@ -88,10 +89,9 @@ func TestHello_ShortName(t *testing.T) {
 }
 
 ```
+#### Add
 
-**test/add_test.go**
-Endpoint `Add` trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi `ADD_RESULT_TOO_BIG`
-
+Endpoint `Add` trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi `ADD_RESULT_TOO_BIG`. Test cho endpoint `Add` như sau:
 
 ```go
 
