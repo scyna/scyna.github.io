@@ -2,9 +2,9 @@
 
 [Introdution](./introduction.md)
 
-## Examples
+# Scyna by Example
 
-- [Example in Golang](./example/overview.md)
+- [Golang](./example/overview.md)
   - [Hello](./example/hello.md)
   - [Account](./example/account.md)
   - [Transaction Script](./example/transaction-script.md)
@@ -12,7 +12,7 @@
   - [Domain Driven Design](./example/ddd.md)
   - [CQRS](./example/cqrs.md)
 
-- [Example in Java]()
+- [Java]()
   - [Hello](./example/hello.md)
   - [Account](./example/account.md)
   - [Transaction Script](./example/transaction-script.md)
@@ -20,7 +20,7 @@
   - [Domain Driven Design](./example/ddd.md)
   - [CQRS](./example/cqrs.md)
 
-- [Example in C#]()
+- [C#]()
   - [Hello]()
   - [Account]()
   - [Transaction Script]()
@@ -34,19 +34,19 @@
   - [Transaction]()
   - [Asset]()
 
-- [Setup](./setup/develop.md)
-  - [General](setup/general.md)
-  - [Golang](setup/golang.md)
-  - [Java](setup/java.md)
-  - [C#](setup/csharp.md)
-  - [Deploy]()
-
 - [Architecture](design/architecture.md)
   - [Proxy](./design/proxy.md)
   - [Gateway](./design/gateway.md)
   - [ID Generator](./design/generator.md)
   - [Trace/Log](./design/trace.md)
   - [Scheduler](./design/scheduler.md)
+
+- [Setup](./setup/develop.md)
+  - [General](setup/general.md)
+  - [Golang](setup/golang.md)
+  - [Java](setup/java.md)
+  - [C#](setup/csharp.md)
+  - [Deploy]()
 
 -----------
 
