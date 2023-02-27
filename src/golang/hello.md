@@ -4,7 +4,7 @@ Ví dụ này giúp bạn nắm được cách xây dựng một microservice đ
 - Sử dụng `protobuf` để định nghĩa API cho các endpoint của microservice
 - Viết test cho các endpoint
 - Implement logic cho các endpoint
-- Deploy dưới dạng các docker container
+- Deploy thành docker container
 
 Ở ví dụ này chúng ta xây dựng một microservice thực hiện 2 endpoint sau
 - `Hello`: nhận vào tên một người và trả lại lời chào người đó
