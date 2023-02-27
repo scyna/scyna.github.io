@@ -8,16 +8,10 @@
 
 - [Golang](./example/overview.md)
   - [Hello](./example/hello.md)
-  - [Account](./example/account.md)
   - [Transaction Script](./example/transaction-script.md)
   - [Vertical Slice](./example/vertical-slice.md)
   - [Domain Driven Design](./example/ddd.md)
   - [CQRS](./example/cqrs.md)
-  - [Resident Management System](example/resident/resident.md)
-    - [Building]()
-    - [Employee]()
-    - [Transaction]()
-    - [Asset]()
 
 - [Java]()
   - [Hello]()
@@ -33,13 +27,17 @@
   - [Domain Driven Design]()
   - [CQRS]()
 
-- [Others]()
+- [Projects]()
+  - [Resident Management System](example/resident/resident.md)
+    - [Building]()
+    - [Employee]()
+    - [Transaction]()
+    - [Asset]()
 
 # Scyna by Design
 
 - [Architecture](design/architecture.md)
-- [Proxy](./design/proxy.md)
-- [Gateway](./design/gateway.md)
+- [Proxy and Gateway](./design/proxy-gateway.md)
 - [ID Generator](./design/generator.md)
 - [Trace/Log](./design/trace.md)
 - [Scheduler](./design/scheduler.md)
