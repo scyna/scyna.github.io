@@ -31,22 +31,21 @@
   - [Domain Driven Design]()
   - [CQRS]()
 
-# Design
+# Guideline and Architecture
+
+- [Setup]()
+  - [General](setup/general.md)
+  - [Golang](setup/golang.md)
+  - [Java](setup/java.md)
+  - [C#](setup/csharp.md)
+  - [Deploy]()
 
 - [Architecture](design/architecture.md)
-- [Proxy](./design/proxy.md)
-- [Gateway](./design/gateway.md)
-- [ID Generator](./design/generator.md)
-- [Trace/Log](./design/trace.md)
-- [Scheduler](./design/scheduler.md)
-
-# Setup
-
-- [General](setup/general.md)
-- [Golang](setup/golang.md)
-- [Java](setup/java.md)
-- [C#](setup/csharp.md)
-- [Deploy]()
+  - [Proxy](./design/proxy.md)
+  - [Gateway](./design/gateway.md)
+  - [ID Generator](./design/generator.md)
+  - [Trace/Log](./design/trace.md)
+  - [Scheduler](./design/scheduler.md)
 
 -----------
 
