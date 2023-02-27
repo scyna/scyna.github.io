@@ -1,12 +1,12 @@
 # Hello Example
 
-Ví dụ này giúp các bạn làm quyen với việc tạo xây dựng một microservice đơn giản dựa sử dụng Scyna. Các bạn cần cài đặt môi trường runtime của Scyna để có thể chạy được các ví dụ. 
+Ví dụ này giúp các bạn làm quen với việc tạo xây dựng một microservice đơn giản dựa sử dụng Scyna. Các bạn cần cài đặt môi trường runtime của Scyna để có thể chạy được các ví dụ. 
 
 Source code của ví dụ https://github.com/scyna/example/tree/main/go/hello
 
 ### 1. API
 
-Ở ví dụ này chúng ta xây dựng một microservice thực hiện 2 endpoint đơn giản nhất là **Hello** và **Add**. Protobuf định nghĩa hai endpoint này được lưu trong file `proto/hello.proto`.
+Ở ví dụ này chúng ta xây dựng một microservice thực hiện 2 endpoint đơn giản nhất là **Hello** và **Add**. Protobuf định nghĩa hai endpoint này được lưu trong file [proto/hello.proto](https://github.com/scyna/example/blob/main/go/hello/proto/hello.proto)
 
 **Hello**
 
@@ -44,7 +44,71 @@ Lệnh để dịch file `proto` sang code của Go:
 protoc -I=. --go_out=. hello.proto
 ```
 
-## 2. Code
+Lệnh này sẽ sinh ra file `proto/hello.pb.go`
+
+## 2. Unit test
+
+Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement logic.
+
+**test/hello_test.go**
+
+Endpoint `Hello` chỉ làm việc rất đơn giản là nhận 1 tên và trả lại lời chào với tên nhận được. Các rule sau cầ n được tuân thủ cho dữ liệu đầu vào:
+- `request.Name` phải không được rỗng
+- `request.Name` có độ dài từ 3 đến 50 ký tự
+
+```go
+func TestHello_Success(t *testing.T) {
+	scyna_test.EndpointTest(hello.HELLO_URL).
+		WithRequest(&proto.HelloRequest{Name: "Alice"}).
+		ExpectResponse(&proto.HelloResponse{Content: "Hello Alice"}).
+		Run(t)
+}
+
+func TestHello_EmptyName(t *testing.T) {
+	scyna_test.EndpointTest(hello.HELLO_URL).
+		WithRequest(&proto.HelloRequest{}).
+		ExpectError(scyna.REQUEST_INVALID).
+		Run(t)
+}
+
+func TestHello_LongName(t *testing.T) {
+	name := "Very long name will cause request invalid."
+	scyna_test.EndpointTest(hello.HELLO_URL).
+		WithRequest(&proto.HelloRequest{Name: name}).
+		ExpectError(scyna.REQUEST_INVALID).
+		Run(t)
+}
+
+func TestHello_ShortName(t *testing.T) {
+	scyna_test.EndpointTest(hello.HELLO_URL).
+		WithRequest(&proto.HelloRequest{Name: "A"}).
+		ExpectError(scyna.REQUEST_INVALID).
+		Run(t)
+}
+```
+
+**test/add_test.go**
+Endpoint `Add` trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi `ADD_RESULT_TOO_BIG`
+
+
+```go
+func TestAdd_Success(t *testing.T) {
+	scyna_test.EndpointTest(hello.ADD_URL).
+		WithRequest(&proto.AddRequest{A: 5, B: 73}).
+		ExpectResponse(&proto.AddResponse{Sum: 78}).
+		Run(t)
+}
+
+func TestAdd_TooBig(t *testing.T) {
+	scyna_test.EndpointTest(hello.ADD_URL).
+		WithRequest(&proto.AddRequest{A: 50, B: 73}).
+		ExpectError(hello.ADD_RESULT_TOO_BIG).
+		Run(t)
+}
+```
+
+
+## 3. Code
 
 ##### [service/hello.go](https://github.com/scyna/example/blob/main/go/hello/service/hello.go)
 
@@ -75,57 +139,5 @@ func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 	}
 
 	return ctx.OK(&proto.AddResponse{Sum: sum})
-}
-```
-
-## 3. Unit test
-
-**test/hello_test.go**
-
-```go
-func TestHelloSuccess(t *testing.T) {
-	scyna_test.EndpointTest(hello.HELLO_URL).
-		WithRequest(&proto.HelloRequest{Name: "Alice"}).
-		ExpectResponse(&proto.HelloResponse{Content: "Hello Alice"}).
-		Run(t)
-}
-
-func TestHelloEmptyName(t *testing.T) {
-	scyna_test.EndpointTest(hello.HELLO_URL).
-		WithRequest(&proto.HelloRequest{}).
-		ExpectError(scyna.REQUEST_INVALID).
-		Run(t)
-}
-
-func TestHelloLongName(t *testing.T) {
-	name := "Very long name will cause request invalid."
-	scyna_test.EndpointTest(hello.HELLO_URL).
-		WithRequest(&proto.HelloRequest{Name: name}).
-		ExpectError(scyna.REQUEST_INVALID).
-		Run(t)
-}
-
-func TestHelloShortName(t *testing.T) {
-	scyna_test.EndpointTest(hello.HELLO_URL).
-		WithRequest(&proto.HelloRequest{Name: "A"}).
-		ExpectError(scyna.REQUEST_INVALID).
-		Run(t)
-}
-```
-**test/add_test.go**
-
-```go
-func TestAddSuccess(t *testing.T) {
-	scyna_test.EndpointTest(hello.ADD_URL).
-		WithRequest(&proto.AddRequest{A: 5, B: 73}).
-		ExpectResponse(&proto.AddResponse{Sum: 78}).
-		Run(t)
-}
-
-func TestAddTooBig(t *testing.T) {
-	scyna_test.EndpointTest(hello.ADD_URL).
-		WithRequest(&proto.AddRequest{A: 50, B: 73}).
-		ExpectError(hello.ADD_RESULT_TOO_BIG).
-		Run(t)
 }
 ```
