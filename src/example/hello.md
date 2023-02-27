@@ -1,17 +1,20 @@
 # Example `Hello`
+
 Ví dụ này giúp bạn nắm được cách xây dựng một microservice đơn giản với Scyna:
 - Sử dụng `protobuf` để định nghĩa API cho các endpoint của microservice
 - Viết test cho các endpoint
 - Implement logic cho các endpoint
-- Deploy
+- Deploy dưới dạng các docker container
 
 Ở ví dụ này chúng ta xây dựng một microservice thực hiện 2 endpoint sau
 - `Hello`: nhận vào tên một người và trả lại lời chào người đó
 - `Add`: nhận vào 2 giá trị nguyên và trả ra tổng của 2 số nguyên đó
 
-## 1. Endpoint Hello
+## 1. Hello
 
 #### API
+
+Scyna sử dụng Google Protobuf để định nghĩa các API. File `hello.proto` sẽ chưa định nghĩa của các endpoint.
 
 ```protobuf
 message HelloRequest
@@ -25,14 +28,13 @@ message HelloResponse
 }
 ```
 
-Định nghĩa API sẽ được lưu trong file `proto/hello.proto`, lệnh để dịch file `proto` sang code của Go:
+Lệnh để dịch file `hello.proto` sang code của Go:
 
 ```bash
 protoc -I=. --go_out=. hello.proto
 ```
 
-Lệnh này sẽ sinh ra file `proto/hello.pb.go`
-
+Sau khi dịch, `protoc` sẽ sinh ra file `hello.pb.go` chứa các định nghĩa giao thức bằng ngôn ngữ `golang` sẵn sàng cho Hello Service sử dụng.
 
 #### Test
 
@@ -40,7 +42,7 @@ Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement lo
 - `Name` phải không được rỗng
 - `Name` có độ dài từ 3 đến 50 ký tự
 
-Chúng ta sẽ viết các test case để kiểm định các rule trên sử dụng `EndpointTest` được Scyna hỗ trợ để viết test case cho các endpoint implement trên Scyna. Test cho `Hello` sẽ được lưu trong file `test/hello_test.go` và có nội dung cơ bản sau.
+Chúng ta sẽ viết các test case để kiểm định các rule trên sử dụng `EndpointTest` được Scyna hỗ trợ để viết test case cho các endpoint implement trên Scyna. Test cho `Hello` sẽ được lưu trong file `hello_test.go` và có nội dung cơ bản sau.
 
 ```go
 func TestHello_Success(t *testing.T) {
@@ -88,7 +90,7 @@ func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
 }
 ```
 
-## 2. Endpoint Add
+## 2. Add
 
 #### API
 
@@ -143,27 +145,7 @@ func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 
 ## 3. Deployment
 
-#### Main function
-
-```go
-const MODULE_CODE = "scyna_test"
-
-func main() {
-	scyna.RemoteInit(scyna.RemoteConfig{
-		ManagerUrl: "http://localhost:8081",
-		Name:       MODULE_CODE,
-		Secret:     "123456",
-	})
-	defer scyna.Release()
-
-	scyna.RegisterEndpoint(service.ADD_URL, service.AddHandler)
-	scyna.RegisterEndpoint(service.HELLO_URL, service.HelloHandler)
-
-	scyna.Start()
-}
-```
-
-#### Setup script
+#### Setup Script
 
 Setup script được viết bằng `go` để tạo master data của microservice (module) và client trên Scyna Engine.
 
@@ -179,7 +161,25 @@ func main() {
 }
 ```
 
-#### Docker container
+#### Main Function
+
+```go
+func main() {
+	scyna.RemoteInit(scyna.RemoteConfig{
+		ManagerUrl: "http://localhost:8081",
+		Name:       "ex_hello",
+		Secret:     "123456",
+	})
+	defer scyna.Release()
+
+	scyna.RegisterEndpoint(service.ADD_URL, service.AddHandler)
+	scyna.RegisterEndpoint(service.HELLO_URL, service.HelloHandler)
+
+	scyna.Start()
+}
+```
+
+#### Docker Container
 
 TBD
 
