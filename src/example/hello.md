@@ -9,8 +9,6 @@ Ví dụ này giúp bạn nắm được cách xây dựng một microservice đ
 - `Hello`: nhận vào tên một người và trả lại lời chào người đó
 - `Add`: nhận vào 2 giá trị nguyên và trả ra tổng của 2 số nguyên đó
 
-Chú ý: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn [tại đây](../setup/golang.md).
-
 ## 1. Endpoint Hello
 
 #### API
@@ -184,6 +182,35 @@ func main() {
 #### Docker container
 
 TBD
+
+#### Test with cURL
+
+```bash
+curl --location --request POST 'http://localhost:8080/ex/hello/hello' \
+--header 'Client-Id: hello_test' \
+--header 'Client-Secret: 123456' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Alice"
+}'
+```
+
+```bash
+curl --location --request POST 'http://localhost:8080/ex/hello/add' \
+--header 'Client-Id: hello_test' \
+--header 'Client-Secret: 123456' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "a": 23,
+    "b": 5
+}'
+```
+
+---
+
+***NOTE***: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn [tại đây](../setup/golang.md).
+
+---
 
 ## 4. Reference
 
