@@ -19,19 +19,21 @@
     - [Transaction]()
     - [Asset]()
 
-- [Java](./example/overview.md)
-  - [Hello](./example/hello.md)
-  - [Transaction Script](./example/transaction-script.md)
-  - [Vertical Slice](./example/vertical-slice.md)
-  - [Domain Driven Design](./example/ddd.md)
-  - [CQRS](./example/cqrs.md)
+- [Java]()
+  - [Hello]()
+  - [Transaction Script]()
+  - [Vertical Slice]()
+  - [Domain Driven Design]()
+  - [CQRS]()
 
-- [C#](./example/overview.md)
-  - [Hello](./example/hello.md)
-  - [Transaction Script](./example/transaction-script.md)
-  - [Vertical Slice](./example/vertical-slice.md)
-  - [Domain Driven Design](./example/ddd.md)
-  - [CQRS](./example/cqrs.md)
+- [C#]()
+  - [Hello]()
+  - [Transaction Script]()
+  - [Vertical Slice]()
+  - [Domain Driven Design]()
+  - [CQRS]()
+
+- [Others]()
 
 # Scyna by Design
 
