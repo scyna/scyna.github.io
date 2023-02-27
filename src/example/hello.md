@@ -45,7 +45,6 @@ Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement lo
 Chúng ta sẽ viết các test case để kiểm định các rule trên sử dụng `EndpointTest` được Scyna hỗ trợ để viết test case cho các endpoint implement trên Scyna. Test cho `Hello` sẽ được lưu trong file `test/hello_test.go` và có nội dung cơ bản sau.
 
 ```go
-
 func TestHello_Success(t *testing.T) {
 	scyna_test.EndpointTest(hello.HELLO_URL).
 		WithRequest(&proto.HelloRequest{Name: "Alice"}).
@@ -74,13 +73,11 @@ func TestHello_ShortName(t *testing.T) {
 		ExpectError(scyna.REQUEST_INVALID).
 		Run(t)
 }
-
 ```
 
 #### 3. Implement
 
 ```go
-
 func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
 	ctx.Info("Receive HelloRequest")
 
@@ -91,7 +88,6 @@ func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
 
 	return ctx.OK(&proto.HelloResponse{Content: "Hello " + request.Name})
 }
-
 ```
 
 ### B. Endpoint Add
@@ -116,7 +112,6 @@ message AddResponse
 Endpoint `Add` trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi `ADD_RESULT_TOO_BIG`. Test cho endpoint `Add` như sau:
 
 ```go
-
 func TestAdd_Success(t *testing.T) {
 	scyna_test.EndpointTest(hello.ADD_URL).
 		WithRequest(&proto.AddRequest{A: 5, B: 73}).
@@ -136,7 +131,6 @@ func TestAdd_TooBig(t *testing.T) {
 #### 3. Implement
 
 ```go
-
 func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 	ctx.Info("Receive AddRequest")
 
@@ -147,7 +141,6 @@ func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 
 	return ctx.OK(&proto.AddResponse{Sum: sum})
 }
-
 ```
 
 ### C. Implement `main.go` và deploy
@@ -170,7 +163,6 @@ func main() {
 
 	scyna.Start()
 }
-
 ```
 
 #### 1. Setup script
