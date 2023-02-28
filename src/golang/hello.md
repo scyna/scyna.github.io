@@ -1,12 +1,12 @@
 # Hello Example 
 
-Ví dụ này giúp bạn nắm được cách xây dựng một microservice đơn giản với Scyna:
-- Sử dụng `protobuf` để định nghĩa API cho các endpoint của microservice
+Trong ví dụ này chúng ta sẽ xây dựng một microservice đơn giản với Scyna:
+- Sử dụng Protobuf để định nghĩa API cho các endpoint của microservice
 - Viết test cho các endpoint
 - Implement logic cho các endpoint
 - Deploy thành docker container
 
-Ở ví dụ này chúng ta xây dựng một microservice thực hiện 2 endpoint sau
+Microservice này sẽ thực hiện 2 chức năng đơn giản sau:
 - `Hello`: nhận vào tên một người và trả lại lời chào người đó
 - `Add`: nhận vào 2 giá trị nguyên và trả ra tổng của 2 số nguyên đó
 
@@ -14,7 +14,7 @@ Ví dụ này giúp bạn nắm được cách xây dựng một microservice đ
 
 #### API
 
-Scyna sử dụng Google Protobuf để định nghĩa các API. File `hello.proto` sẽ chưa định nghĩa của các endpoint.
+Scyna sử dụng Google Protobuf để định nghĩa các API, file `hello.proto` sẽ chứa định nghĩa của các endpoint.
 
 ```protobuf
 message HelloRequest
@@ -75,7 +75,7 @@ func TestHello_ShortName(t *testing.T) {
 }
 ```
 
-#### Implement
+#### Implementation
 
 ```go
 func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
@@ -128,7 +128,7 @@ func TestAdd_TooBig(t *testing.T) {
 
 ```
 
-#### Implement
+#### Implementation
 
 ```go
 func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {

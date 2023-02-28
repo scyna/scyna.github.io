@@ -1,17 +1,18 @@
 # Summary
 
-[Introdution](./introduction.md)
+[Introdution](introduction.md)
 
 [Getting Started](getting-started.md)
 
 # Scyna by Example
 
-- [Golang](./golang/overview.md)
-  - [Hello](./golang/hello.md)
-  - [Transaction Script](./golang/transaction-script.md)
-  - [Vertical Slice](./golang/vertical-slice.md)
-  - [Domain Driven Design](./golang/ddd.md)
-  - [CQRS](./golang/cqrs.md)
+- [Golang](golang/overview.md)
+  - [Hello](golang/hello.md)
+  - [Transaction Script](golang/transaction-script.md)
+  - [Active Record](golang/active-record.md)
+  - [Vertical Slice](golang/vertical-slice.md)
+  - [Domain Driven Design](golang/ddd.md)
+  - [CQRS](golang/cqrs.md)
 
 - [Java]()
   - [Hello]()
@@ -27,20 +28,13 @@
   - [Domain Driven Design]()
   - [CQRS]()
 
-- [Projects]()
-  - [Resident Management System](example/resident/resident.md)
-    - [Building]()
-    - [Employee]()
-    - [Transaction]()
-    - [Asset]()
-
 # Scyna by Design
 
 - [Architecture](design/architecture.md)
-- [Proxy and Gateway](./design/proxy-gateway.md)
-- [ID Generator](./design/generator.md)
-- [Trace/Log](./design/trace.md)
-- [Scheduler](./design/scheduler.md)
+- [Proxy and Gateway](design/proxy-gateway.md)
+- [ID Generator](design/generator.md)
+- [Trace/Log](design/trace.md)
+- [Scheduler](design/scheduler.md)
 
 # Reference Guide
 - [Golang SDK]()
