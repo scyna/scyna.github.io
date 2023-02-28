@@ -1,4 +1,4 @@
-# Hello Example 
+# Hello
 
 Trong ví dụ này chúng ta sẽ xây dựng một microservice đơn giản với Scyna:
 - Sử dụng Protobuf để định nghĩa API cho các endpoint của microservice

@@ -10,9 +10,9 @@
   - [Hello](golang/hello.md)
   - [Transaction Script](golang/transaction-script.md)
   - [Active Record](golang/active-record.md)
-  - [Vertical Slice](golang/vertical-slice.md)
   - [Domain Driven Design](golang/ddd.md)
   - [CQRS](golang/cqrs.md)
+  - [Vertical Slice](golang/vertical-slic.md)
 
 - [Java]()
   - [Hello]()
