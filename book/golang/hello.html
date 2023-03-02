@@ -1,0 +1,416 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hello</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Welcome to the Scyna Documentation site!">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../introduction.html">Introdution</a></li><li class="chapter-item affix "><a href="../getting-started.html">Getting Started</a></li><li class="chapter-item affix "><li class="part-title">Scyna by Example</li><li class="chapter-item expanded "><a href="../golang/overview.html"><strong aria-hidden="true">1.</strong> Golang</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../golang/hello.html" class="active"><strong aria-hidden="true">1.1.</strong> Hello</a></li><li class="chapter-item "><a href="../golang/transaction-script.html"><strong aria-hidden="true">1.2.</strong> Transaction Script</a></li><li class="chapter-item "><a href="../golang/active-record.html"><strong aria-hidden="true">1.3.</strong> Active Record</a></li><li class="chapter-item "><a href="../golang/ddd.html"><strong aria-hidden="true">1.4.</strong> Domain Driven Design</a></li><li class="chapter-item "><a href="../golang/cqrs.html"><strong aria-hidden="true">1.5.</strong> CQRS</a></li><li class="chapter-item "><a href="../golang/vertical-slic.html"><strong aria-hidden="true">1.6.</strong> Vertical Slice</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">2.</strong> Java</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">2.1.</strong> Hello</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.2.</strong> Transaction Script</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.3.</strong> Vertical Slice</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.4.</strong> Domain Driven Design</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.5.</strong> CQRS</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.</strong> C#</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">3.1.</strong> Hello</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.2.</strong> Transaction Script</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.3.</strong> Vertical Slice</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.4.</strong> Domain Driven Design</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.5.</strong> CQRS</div></li></ol></li><li class="chapter-item "><li class="part-title">Scyna by Design</li><li class="chapter-item "><a href="../design/architecture.html"><strong aria-hidden="true">4.</strong> Architecture</a></li><li class="chapter-item "><a href="../design/proxy-gateway.html"><strong aria-hidden="true">5.</strong> Proxy and Gateway</a></li><li class="chapter-item "><a href="../design/generator.html"><strong aria-hidden="true">6.</strong> ID Generator</a></li><li class="chapter-item "><a href="../design/trace.html"><strong aria-hidden="true">7.</strong> Trace/Log</a></li><li class="chapter-item "><a href="../design/scheduler.html"><strong aria-hidden="true">8.</strong> Scheduler</a></li><li class="chapter-item affix "><li class="part-title">Reference Guide</li><li class="chapter-item "><div><strong aria-hidden="true">9.</strong> Golang SDK</div></li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> Java SDK</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> C# SDK</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hello"><a class="header" href="#hello">Hello</a></h1>
+<p>Trong ví dụ này chúng ta sẽ xây dựng một microservice đơn giản với Scyna:</p>
+<ul>
+<li>Sử dụng Protobuf để định nghĩa API cho các endpoint của microservice</li>
+<li>Viết test cho các endpoint</li>
+<li>Implement logic cho các endpoint</li>
+<li>Deploy thành docker container</li>
+</ul>
+<p>Microservice này sẽ thực hiện 2 chức năng đơn giản sau:</p>
+<ul>
+<li><code>Hello</code>: nhận vào tên một người và trả lại lời chào người đó</li>
+<li><code>Add</code>: nhận vào 2 giá trị nguyên và trả ra tổng của 2 số nguyên đó</li>
+</ul>
+<h2 id="1-hello"><a class="header" href="#1-hello">1. Hello</a></h2>
+<h4 id="api"><a class="header" href="#api">API</a></h4>
+<p>Scyna sử dụng Google Protobuf để định nghĩa các API, file <code>hello.proto</code> sẽ chứa định nghĩa của các endpoint.</p>
+<pre><code class="language-protobuf">message HelloRequest
+{
+  string name = 1;
+}
+
+message HelloResponse 
+{
+  string content = 1;
+}
+</code></pre>
+<p>Lệnh để dịch file <code>hello.proto</code> sang code của Go:</p>
+<pre><code class="language-bash">protoc -I=. --go_out=. hello.proto
+</code></pre>
+<p>Sau khi dịch, <code>protoc</code> sẽ sinh ra file <code>hello.pb.go</code> chứa các định nghĩa giao thức bằng ngôn ngữ <code>golang</code> sẵn sàng cho Hello Service sử dụng.</p>
+<h4 id="test"><a class="header" href="#test">Test</a></h4>
+<p>Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement logic. Endpoint <code>Hello</code> chỉ làm việc rất đơn giản là nhận một tên và trả lại lời chào với tên nhận được. Các rule sau cần được tuân thủ cho dữ liệu đầu vào:</p>
+<ul>
+<li><code>Name</code> phải không được rỗng</li>
+<li><code>Name</code> có độ dài từ 3 đến 50 ký tự</li>
+</ul>
+<p>Chúng ta sẽ viết các test case để kiểm định các rule trên sử dụng <code>EndpointTest</code> được Scyna hỗ trợ để viết test case cho các endpoint implement trên Scyna. Test cho <code>Hello</code> sẽ được lưu trong file <code>hello_test.go</code> và có nội dung cơ bản sau.</p>
+<pre><code class="language-go">func TestHello_Success(t *testing.T) {
+	scyna_test.EndpointTest(hello.HELLO_URL).
+		WithRequest(&amp;proto.HelloRequest{Name: &quot;Alice&quot;}).
+		ExpectResponse(&amp;proto.HelloResponse{Content: &quot;Hello Alice&quot;}).
+		Run(t)
+}
+
+func TestHello_EmptyName(t *testing.T) {
+	scyna_test.EndpointTest(hello.HELLO_URL).
+		WithRequest(&amp;proto.HelloRequest{}).
+		ExpectError(scyna.REQUEST_INVALID).
+		Run(t)
+}
+
+func TestHello_LongName(t *testing.T) {
+	name := &quot;Very long name will cause request invalid.&quot;
+	scyna_test.EndpointTest(hello.HELLO_URL).
+		WithRequest(&amp;proto.HelloRequest{Name: name}).
+		ExpectError(scyna.REQUEST_INVALID).
+		Run(t)
+}
+
+func TestHello_ShortName(t *testing.T) {
+	scyna_test.EndpointTest(hello.HELLO_URL).
+		WithRequest(&amp;proto.HelloRequest{Name: &quot;A&quot;}).
+		ExpectError(scyna.REQUEST_INVALID).
+		Run(t)
+}
+</code></pre>
+<h4 id="implementation"><a class="header" href="#implementation">Implementation</a></h4>
+<pre><code class="language-go">func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
+	ctx.Info(&quot;Receive HelloRequest&quot;)
+
+	length := len(request.Name)
+	if length &lt; 3 || length &gt; 50 {
+		return scyna.REQUEST_INVALID
+	}
+
+	return ctx.OK(&amp;proto.HelloResponse{Content: &quot;Hello &quot; + request.Name})
+}
+</code></pre>
+<h2 id="2-add"><a class="header" href="#2-add">2. Add</a></h2>
+<h4 id="api-1"><a class="header" href="#api-1">API</a></h4>
+<pre><code class="language-protobuf">message AddRequest
+{
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message AddResponse
+{
+  int32 sum = 1;
+}
+</code></pre>
+<h4 id="test-1"><a class="header" href="#test-1">Test</a></h4>
+<p>Endpoint <code>Add</code> trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi <code>ADD_RESULT_TOO_BIG</code>. Test cho endpoint <code>Add</code> như sau:</p>
+<pre><code class="language-go">func TestAdd_Success(t *testing.T) {
+	scyna_test.EndpointTest(hello.ADD_URL).
+		WithRequest(&amp;proto.AddRequest{A: 5, B: 73}).
+		ExpectResponse(&amp;proto.AddResponse{Sum: 78}).
+		Run(t)
+}
+
+func TestAdd_TooBig(t *testing.T) {
+	scyna_test.EndpointTest(hello.ADD_URL).
+		WithRequest(&amp;proto.AddRequest{A: 50, B: 73}).
+		ExpectError(hello.ADD_RESULT_TOO_BIG).
+		Run(t)
+}
+
+</code></pre>
+<h4 id="implementation-1"><a class="header" href="#implementation-1">Implementation</a></h4>
+<pre><code class="language-go">func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
+	ctx.Info(&quot;Receive AddRequest&quot;)
+
+	sum := request.A + request.B
+	if sum &gt; 100 {
+		return ADD_RESULT_TOO_BIG
+	}
+
+	return ctx.OK(&amp;proto.AddResponse{Sum: sum})
+}
+</code></pre>
+<h2 id="3-deployment"><a class="header" href="#3-deployment">3. Deployment</a></h2>
+<h4 id="setup-script"><a class="header" href="#setup-script">Setup Script</a></h4>
+<p>Setup script được viết bằng <code>go</code> để tạo master data của microservice (module) và client trên Scyna Engine.</p>
+<pre><code class="language-go">func main() {
+	scyna_setup.Init()
+	scyna_setup.NewModule(&quot;ex_hello&quot;, &quot;123456&quot;).Build()
+
+	scyna_setup.NewClient(&quot;hello_test&quot;, &quot;123456&quot;).
+		UseEndpoint(service.ADD_URL).
+		UseEndpoint(service.HELLO_URL).
+		Build()
+}
+</code></pre>
+<h4 id="main-function"><a class="header" href="#main-function">Main Function</a></h4>
+<pre><code class="language-go">func main() {
+	scyna.RemoteInit(scyna.RemoteConfig{
+		ManagerUrl: &quot;http://localhost:8081&quot;,
+		Name:       &quot;ex_hello&quot;,
+		Secret:     &quot;123456&quot;,
+	})
+	defer scyna.Release()
+
+	scyna.RegisterEndpoint(service.ADD_URL, service.AddHandler)
+	scyna.RegisterEndpoint(service.HELLO_URL, service.HelloHandler)
+
+	scyna.Start()
+}
+</code></pre>
+<h4 id="docker-container"><a class="header" href="#docker-container">Docker Container</a></h4>
+<pre><code class="language-dockerfile"># Base image for Go build environment
+FROM golang:1.19.1-alpine3.16 AS build-env
+
+# Set environment variables
+ENV GO111MODULE=on \
+    WORKDIR=/go/src/app
+
+# Set working directory
+WORKDIR $WORKDIR
+
+# Copy application source code
+COPY example_folder $WORKDIR
+
+# Download Go module dependencies
+RUN go mod download
+
+
+# Build the application
+RUN go build -o /go/bin/app
+
+# Final image
+FROM alpine:3.16
+
+# Set environment variables
+ENV PASSWORD=&quot;123456789aA@#&quot; \
+    MANAGER_URL=&quot;https://localhost:8081&quot;
+
+# Copy the application binary from the build environment
+COPY --from=build-env /go/bin/app /usr/local/bin/app
+
+# Start the application
+CMD /usr/local/bin/app --password ${PASSWORD} --managerUrl ${MANAGER_URL}
+</code></pre>
+<h4 id="test-with-curl"><a class="header" href="#test-with-curl">Test with cURL</a></h4>
+<pre><code class="language-bash">curl --location --request POST 'http://localhost:8080/ex/hello/hello' \
+--header 'Client-Id: hello_test' \
+--header 'Client-Secret: 123456' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;name&quot;: &quot;Alice&quot;
+}'
+</code></pre>
+<pre><code class="language-bash">curl --location --request POST 'http://localhost:8080/ex/hello/add' \
+--header 'Client-Id: hello_test' \
+--header 'Client-Secret: 123456' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;a&quot;: 23,
+    &quot;b&quot;: 5
+}'
+</code></pre>
+<hr />
+<p><em><strong>NOTE</strong></em>: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn <a href="../setup/golang.html">tại đây</a>.</p>
+<hr />
+<h2 id="4-reference"><a class="header" href="#4-reference">4. Reference</a></h2>
+<ul>
+<li>Source code: https://github.com/scyna/example/tree/main/go/hello</li>
+<li>Setup for Golang developer</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../golang/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../golang/transaction-script.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../golang/overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../golang/transaction-script.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
