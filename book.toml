@@ -10,7 +10,7 @@ description = "Welcome to the Scyna Documentation site!"
 input-404 = "not-found.md"
 default-theme = "ayu"
 preferred-dark-theme = "ayu"
-google-analytics = "G-XZ9KGMN282"
+copy-fonts = false
 
 [output.html.fold]
 enable = true

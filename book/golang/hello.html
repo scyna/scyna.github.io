@@ -29,6 +29,16 @@
 
         <!-- Custom theme stylesheets -->
 
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ9KGMN282"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XZ9KGMN282');
+        </script>
     </head>
     <body>
     <div id="body-container">
@@ -217,7 +227,7 @@ func TestHello_ShortName(t *testing.T) {
 }
 </code></pre>
 <h2 id="2-add"><a class="header" href="#2-add">2. Add</a></h2>
-<h4 id="api-1"><a class="header" href="#api-1">API</a></h4>
+<h3 id="21-api"><a class="header" href="#21-api">2.1 API</a></h3>
 <pre><code class="language-protobuf">message AddRequest
 {
   int32 a = 1;
@@ -229,7 +239,7 @@ message AddResponse
   int32 sum = 1;
 }
 </code></pre>
-<h4 id="test-1"><a class="header" href="#test-1">Test</a></h4>
+<h3 id="22-test"><a class="header" href="#22-test">2.2 Test</a></h3>
 <p>Endpoint <code>Add</code> trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi <code>ADD_RESULT_TOO_BIG</code>. Test cho endpoint <code>Add</code> như sau:</p>
 <pre><code class="language-go">func TestAdd_Success(t *testing.T) {
 	scyna_test.EndpointTest(hello.ADD_URL).
@@ -246,7 +256,7 @@ func TestAdd_TooBig(t *testing.T) {
 }
 
 </code></pre>
-<h4 id="implementation-1"><a class="header" href="#implementation-1">Implementation</a></h4>
+<h3 id="23-implementation"><a class="header" href="#23-implementation">2.3 Implementation</a></h3>
 <pre><code class="language-go">func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 	ctx.Info(&quot;Receive AddRequest&quot;)
 
@@ -259,7 +269,7 @@ func TestAdd_TooBig(t *testing.T) {
 }
 </code></pre>
 <h2 id="3-deployment"><a class="header" href="#3-deployment">3. Deployment</a></h2>
-<h4 id="setup-script"><a class="header" href="#setup-script">Setup Script</a></h4>
+<h3 id="31-setup-script"><a class="header" href="#31-setup-script">3.1 Setup Script</a></h3>
 <p>Setup script được viết bằng <code>go</code> để tạo master data của microservice (module) và client trên Scyna Engine.</p>
 <pre><code class="language-go">func main() {
 	scyna_setup.Init()
@@ -271,7 +281,7 @@ func TestAdd_TooBig(t *testing.T) {
 		Build()
 }
 </code></pre>
-<h4 id="main-function"><a class="header" href="#main-function">Main Function</a></h4>
+<h3 id="32-main-function"><a class="header" href="#32-main-function">3.2 Main Function</a></h3>
 <pre><code class="language-go">func main() {
 	scyna.RemoteInit(scyna.RemoteConfig{
 		ManagerUrl: &quot;http://localhost:8081&quot;,
@@ -286,7 +296,7 @@ func TestAdd_TooBig(t *testing.T) {
 	scyna.Start()
 }
 </code></pre>
-<h4 id="docker-container"><a class="header" href="#docker-container">Docker Container</a></h4>
+<h3 id="33-docker-container"><a class="header" href="#33-docker-container">3.3 Docker Container</a></h3>
 <pre><code class="language-dockerfile"># Base image for Go build environment
 FROM golang:1.19.1-alpine3.16 AS build-env
 
@@ -320,7 +330,7 @@ COPY --from=build-env /go/bin/app /usr/local/bin/app
 # Start the application
 CMD /usr/local/bin/app --password ${PASSWORD} --managerUrl ${MANAGER_URL}
 </code></pre>
-<h4 id="test-with-curl"><a class="header" href="#test-with-curl">Test with cURL</a></h4>
+<h3 id="34-test-with-curl"><a class="header" href="#34-test-with-curl">3.4 Test with cURL</a></h3>
 <pre><code class="language-bash">curl --location --request POST 'http://localhost:8080/ex/hello/hello' \
 --header 'Client-Id: hello_test' \
 --header 'Client-Secret: 123456' \
@@ -338,13 +348,13 @@ CMD /usr/local/bin/app --password ${PASSWORD} --managerUrl ${MANAGER_URL}
     &quot;b&quot;: 5
 }'
 </code></pre>
-<hr />
-<p><em><strong>NOTE</strong></em>: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn <a href="../setup/golang.html">tại đây</a>.</p>
-<hr />
+<blockquote>
+<p><em><strong>NOTE</strong></em>: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn <a href="./../getting-started.html">tại đây</a>.</p>
+</blockquote>
 <h2 id="4-reference"><a class="header" href="#4-reference">4. Reference</a></h2>
 <ul>
 <li>Source code: https://github.com/scyna/example/tree/main/go/hello</li>
-<li>Setup for Golang developer</li>
+<li>Setup for Golang developer.</li>
 </ul>
 
                     </main>
@@ -393,22 +403,6 @@ CMD /usr/local/bin/app --password ${PASSWORD} --managerUrl ${MANAGER_URL}
             }
         </script>
 
-        <!-- Google Analytics Tag -->
-        <script>
-            var localAddrs = ["localhost", "127.0.0.1", ""];
-
-            // make sure we don't activate google analytics if the developer is
-            // inspecting the book locally...
-            if (localAddrs.indexOf(document.location.hostname) === -1) {
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-                ga('create', 'G-XZ9KGMN282', 'auto');
-                ga('send', 'pageview');
-            }
-        </script>
 
 
         <script>
