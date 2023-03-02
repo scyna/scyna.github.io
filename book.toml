@@ -3,13 +3,14 @@ authors = ["Khanh Ngo", "San Nguyen"]
 language = "vi"
 multilingual = true
 src = "src"
-#title = "Scyna Documentation"
+title = "Scyna Documentation"
 description = "Welcome to the Scyna Documentation site!"
 
 [output.html]
 input-404 = "not-found.md"
 default-theme = "ayu"
 preferred-dark-theme = "ayu"
+google-analytics = "G-XZ9KGMN282"
 
 [output.html.fold]
 enable = true
