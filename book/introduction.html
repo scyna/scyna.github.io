@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="vi" class="sidebar-visible no-js light">
+<html lang="vi" class="sidebar-visible no-js ayu">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction</title>
+        <title>Introdution - Scyna Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -29,13 +29,23 @@
 
         <!-- Custom theme stylesheets -->
 
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ9KGMN282"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XZ9KGMN282');
+        </script>
     </head>
     <body>
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -61,7 +71,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('ayu')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -80,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="introduction.html" class="active">Introduction</a></li><li class="chapter-item "><a href="setup/develop.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="example/overview.html"><strong aria-hidden="true">2.</strong> Scyna by Example</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="example/example-1.html"><strong aria-hidden="true">2.1.</strong> Hello World</a></li><li class="chapter-item "><a href="example/example-2.html"><strong aria-hidden="true">2.2.</strong> Làm việc với Service</a></li><li class="chapter-item "><div><strong aria-hidden="true">2.3.</strong> Làm việc với Signal</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.4.</strong> Làm việc với Event</div></li></ol></li><li class="chapter-item "><a href="sdk/overview.html"><strong aria-hidden="true">3.</strong> SDKs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">3.1.</strong> Golang</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.2.</strong> Java</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.3.</strong> C#</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">4.</strong> Deploy</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="feedback.html">Feedback</a></li><li class="chapter-item affix "><a href="reference.html">Reference</a></li><li class="chapter-item affix "><a href="contribute.html">Contribute</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="introduction.html" class="active">Introdution</a></li><li class="chapter-item affix "><a href="getting-started.html">Getting Started</a></li><li class="chapter-item affix "><li class="part-title">Scyna by Example</li><li class="chapter-item "><a href="golang/overview.html"><strong aria-hidden="true">1.</strong> Golang</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="golang/hello.html"><strong aria-hidden="true">1.1.</strong> Hello</a></li><li class="chapter-item "><a href="golang/transaction-script.html"><strong aria-hidden="true">1.2.</strong> Transaction Script</a></li><li class="chapter-item "><a href="golang/active-record.html"><strong aria-hidden="true">1.3.</strong> Active Record</a></li><li class="chapter-item "><a href="golang/ddd.html"><strong aria-hidden="true">1.4.</strong> Domain Driven Design</a></li><li class="chapter-item "><a href="golang/cqrs.html"><strong aria-hidden="true">1.5.</strong> CQRS</a></li><li class="chapter-item "><a href="golang/vertical-slic.html"><strong aria-hidden="true">1.6.</strong> Vertical Slice</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">2.</strong> Java</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">2.1.</strong> Hello</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.2.</strong> Transaction Script</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.3.</strong> Vertical Slice</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.4.</strong> Domain Driven Design</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.5.</strong> CQRS</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.</strong> C#</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">3.1.</strong> Hello</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.2.</strong> Transaction Script</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.3.</strong> Vertical Slice</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.4.</strong> Domain Driven Design</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.5.</strong> CQRS</div></li></ol></li><li class="chapter-item "><li class="part-title">Scyna by Design</li><li class="chapter-item "><a href="design/architecture.html"><strong aria-hidden="true">4.</strong> Architecture</a></li><li class="chapter-item "><a href="design/proxy-gateway.html"><strong aria-hidden="true">5.</strong> Proxy and Gateway</a></li><li class="chapter-item "><a href="design/generator.html"><strong aria-hidden="true">6.</strong> ID Generator</a></li><li class="chapter-item "><a href="design/trace.html"><strong aria-hidden="true">7.</strong> Trace/Log</a></li><li class="chapter-item "><a href="design/scheduler.html"><strong aria-hidden="true">8.</strong> Scheduler</a></li><li class="chapter-item affix "><li class="part-title">Reference Guide</li><li class="chapter-item "><div><strong aria-hidden="true">9.</strong> Golang SDK</div></li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> Java SDK</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> C# SDK</div></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -109,7 +119,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title"></h1>
+                    <h1 class="menu-title">Scyna Documentation</h1>
 
                     <div class="right-buttons">
 
@@ -138,20 +148,18 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="welcome-to-the-scyna-documentation-site"><a class="header" href="#welcome-to-the-scyna-documentation-site">Welcome to the Scyna documentation site!</a></h1>
-<hr />
-<blockquote>
-<h3 id="scyna-là-gì"><a class="header" href="#scyna-là-gì">Scyna là gì?</a></h3>
-<p>Scyna là một platform cho phép người dùng sử dụng để xây dựng hệ thống tối ưu.</p>
-</blockquote>
-<p><img src="images/logo.png" alt="The Scyna Logo" /></p>
+                        <h1 id="scyna"><a class="header" href="#scyna">SCYNA</a></h1>
+<p><strong>SCYNA</strong> là một nền tảng phát triển phần mềm dựa trên kiến trúc Microservice và Event-Driven. Scyna xuất phát từ một dự án phát triển nền tảng nội bộ (Internal Developer Platform) thuộc Vin3S để dùng cho một số hệ thống của VinFast. Dự án kết thúc với một số kết quả nhất định đủ đáp ứng nhu cầu nội bộ. Tuy nhiên, team phát triển nhận thấy dự án còn nhiều vấn đề có thể cải tiến và nó có thể rất hữu ích cho cộng đồng Developer nên đã thành lập một dự án mới dưới hình thức nguồn mở trên github (https://github.com/scyna) với mục đích xây dựng lại một nền tảng mới đơn giản hơn, gọn nhẹ hơn, tận dụng được khả năng generic mới được Golang release ở version 1.18. Nền tảng mới cũng hướng đến hỗ trợ SDK cho các ngôn ngữ lập trình thông dụng như Java, C#, Python, C++,...</p>
+<p>Các module chính của Scyna được xây dựng bằng Golang, sử dụng NATS và ScyllaDB làm nền tảng giao tiếp và lưu trữ dữ liệu. Cái tên Scyna chính là được ghép của <strong>SCY</strong>lla và <strong>NA</strong>TS. Hiện tại Scyna hỗ trợ SDK cho 3 ngôn ngữ: Golang, Java và C#. Dự kiến SDK cho các ngôn ngữ Python, C++ và Rust sẽ được bổ sung trong thời gian tới.</p>
+<p align="center"><img src="images/scyna-name.png"  width="500"></p>
+<p>Mục đích của Scyna là làm đơn giản hóa việc xây dựng các hệ thống phần mềm phân tán sử dụng Microservice và Event-Driven; tối ưu nguồn lực của doanh nghiệp khi có thể linh hoạt điều phối các developer có kỹ năng trên nhiều ngôn ngữ lập trình khác nhau; và hỗ trợ các khung kiến trúc tuân thủ Domain Driven Design, hỗ trợ mô hình phát triển Test Driven Developement.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
-                            <a rel="next" href="setup/develop.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="getting-started.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -162,7 +170,7 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
-                    <a rel="next" href="setup/develop.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="getting-started.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

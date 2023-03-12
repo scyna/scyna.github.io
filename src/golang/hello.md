@@ -92,7 +92,7 @@ func HelloHandler(ctx scyna.Context, request *proto.HelloRequest) scyna.Error {
 
 ## 2. Add
 
-#### API
+### 2.1 API
 
 ```protobuf
 message AddRequest
@@ -107,7 +107,7 @@ message AddResponse
 }
 ```
 
-#### Test
+### 2.2 Test
 
 Endpoint `Add` trả về tổng của 2 số nguyên đầu vào. Nếu kết quả lớn hơn 100 sẽ báo lỗi `ADD_RESULT_TOO_BIG`. Test cho endpoint `Add` như sau:
 
@@ -128,7 +128,7 @@ func TestAdd_TooBig(t *testing.T) {
 
 ```
 
-#### Implementation
+### 2.3 Implementation
 
 ```go
 func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
@@ -145,7 +145,7 @@ func AddHandler(ctx scyna.Context, request *proto.AddRequest) scyna.Error {
 
 ## 3. Deployment
 
-#### Setup Script
+### 3.1 Setup Script
 
 Setup script được viết bằng `go` để tạo master data của microservice (module) và client trên Scyna Engine.
 
@@ -161,7 +161,7 @@ func main() {
 }
 ```
 
-#### Main Function
+### 3.2 Main Function
 
 ```go
 func main() {
@@ -179,11 +179,44 @@ func main() {
 }
 ```
 
-#### Docker Container
+### 3.3 Docker Container
 
-TBD
+```dockerfile
+# Base image for Go build environment
+FROM golang:1.19.1-alpine3.16 AS build-env
 
-#### Test with cURL
+# Set environment variables
+ENV GO111MODULE=on \
+    WORKDIR=/go/src/app
+
+# Set working directory
+WORKDIR $WORKDIR
+
+# Copy application source code
+COPY example_folder $WORKDIR
+
+# Download Go module dependencies
+RUN go mod download
+
+
+# Build the application
+RUN go build -o /go/bin/app
+
+# Final image
+FROM alpine:3.16
+
+# Set environment variables
+ENV PASSWORD="123456789aA@#" \
+    MANAGER_URL="https://localhost:8081"
+
+# Copy the application binary from the build environment
+COPY --from=build-env /go/bin/app /usr/local/bin/app
+
+# Start the application
+CMD /usr/local/bin/app --password ${PASSWORD} --managerUrl ${MANAGER_URL}
+```
+
+### 3.4 Test with cURL
 
 ```bash
 curl --location --request POST 'http://localhost:8080/ex/hello/hello' \
@@ -206,13 +239,10 @@ curl --location --request POST 'http://localhost:8080/ex/hello/add' \
 }'
 ```
 
----
-
-***NOTE***: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn [tại đây](../setup/golang.md).
-
----
+> ***NOTE***: để chạy được ví dụ, các bạn cần phải cài đặt môi trường runtime của Scyna, chi tiết hướng dẫn [tại đây](./../getting-started.md).
 
 ## 4. Reference
 
 - Source code: https://github.com/scyna/example/tree/main/go/hello
-- Setup for Golang developer
+- Setup for Golang developer.
+  
