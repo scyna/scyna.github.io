@@ -39,9 +39,9 @@
         {{/if}}
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="{{ path_to_root }}highlight.css">
+        <link rel="stylesheet" href="{{ path_to_root }}styles/androidstudio.min.css">
         <link rel="stylesheet" href="{{ path_to_root }}tomorrow-night.css">
-        <link rel="stylesheet" href="{{ path_to_root }}ayu-highlight.css">
+        {{!-- <link rel="stylesheet" href="{{ path_to_root }}ayu-highlight.css"> --}}
 
         <!-- Custom theme stylesheets -->
         {{#each additional_css}}
@@ -294,9 +294,9 @@
         {{/if}}
 
         <script src="{{ path_to_root }}clipboard.min.js"></script>
-        <script src="{{ path_to_root }}highlight.js"></script>
+        <script src="{{ path_to_root }}theme/highlight.min.js"></script>
         <script src="{{ path_to_root }}book.js"></script>
-
+        <script>hljs.highlightAll();</script>
         <!-- Custom JS scripts -->
         {{#each additional_js}}
         <script src="{{ ../path_to_root }}{{this}}"></script>

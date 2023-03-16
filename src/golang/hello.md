@@ -12,7 +12,7 @@ Microservice này sẽ thực hiện 2 chức năng đơn giản sau:
 
 ## 1. Hello
 
-#### API
+### API
 
 Scyna sử dụng Google Protobuf để định nghĩa các API, file `hello.proto` sẽ chứa định nghĩa của các endpoint.
 
@@ -36,7 +36,7 @@ protoc -I=. --go_out=. hello.proto
 
 Sau khi dịch, `protoc` sẽ sinh ra file `hello.pb.go` chứa các định nghĩa giao thức bằng ngôn ngữ `golang` sẵn sàng cho Hello Service sử dụng.
 
-#### Test
+### Test
 
 Theo tinh thần của TDD, chúng ta sẽ viết test trước khi implement logic. Endpoint `Hello` chỉ làm việc rất đơn giản là nhận một tên và trả lại lời chào với tên nhận được. Các rule sau cần được tuân thủ cho dữ liệu đầu vào:
 - `Name` phải không được rỗng

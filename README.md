@@ -12,7 +12,7 @@ Build the documentation
 
 1. Run in locally
 
-```
+```bash
 mdbook serve --open
 ```
 

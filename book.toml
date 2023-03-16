@@ -11,6 +11,11 @@ input-404 = "not-found.md"
 default-theme = "ayu"
 preferred-dark-theme = "ayu"
 copy-fonts = false
+additional-css = [
+    "theme/styles/default.min.css",
+    "theme/styles/androidstudio.min.css",
+]
+additional-js = ["theme/highlight.min.js"]
 
 [output.html.fold]
 enable = true

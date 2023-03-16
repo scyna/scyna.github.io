@@ -23,11 +23,12 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../styles/androidstudio.min.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/styles/default.min.css">
+        <link rel="stylesheet" href="../theme/styles/androidstudio.min.css">
 
 
         <!-- Google tag (gtag.js) -->
@@ -149,12 +150,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="proxy"><a class="header" href="#proxy">Proxy</a></h1>
-<p>Proxy là cổng để kết nối các hệ thống bên ngoài với các service được implement trên Scyna. Đây thường là kết nối Backend-to-Backend và được xác thực bằng hai giá trị <em><strong>Client-ID</strong></em> và <em><strong>Secret</strong></em>. Với mỗi cặp Client-ID/Secret, hệ thống sẽ được cấp quyền sử dụng một số Endpoint nhất định.</p>
+<p>Proxy là cổng để kết nối các hệ thống bên ngoài với các service được implement trên Scyna. Đây thường là kết nối Backend-to-Backend và được xác thực bằng hai giá trị <code>Client-ID</code> và <code>Client-Secret</code>. Với mỗi cặp <code>Client-ID</code>/<code>Client-Secret</code>, hệ thống sẽ được cấp quyền sử dụng một số Endpoint nhất định.</p>
 <p align="center">
 <img src="../images/scyna-proxy.png"  width="100%">
 </p>
 <h1 id="gateway"><a class="header" href="#gateway">Gateway</a></h1>
-<p>Giống như Proxy, Gateway là cổng vào cho các request xuất phát từ các ứng dụng (Frontend). Scyna hỗ trợ cơ chế xác thực cho người dùng cuối bằng một loại Endpoint đặc biệt là AuthService. Các ứng dụng có thể  linh hoạt xây dựng các cơ chế xác thực cho riêng mình bằng cách implement AuthServiuce của Application đó. Một AuthService có thể được sử dụng bởi nhiều Application. Đây cũng chính là cơ chế SSO cho các cho các Application. Luồng tạo một xác thực được mô tả như hình bên dưới</p>
+<p>Giống như Proxy, Gateway là cổng vào cho các request xuất phát từ các ứng dụng (Frontend). Scyna hỗ trợ cơ chế xác thực cho người dùng cuối bằng một loại Endpoint đặc biệt là <code>AuthService</code>. Các ứng dụng có thể  linh hoạt xây dựng các cơ chế xác thực cho riêng mình bằng cách implement <code>AuthService</code> của Application đó. Một <code>AuthService</code> có thể được sử dụng bởi nhiều Application. Đây cũng chính là cơ chế SSO cho các cho các Application. Luồng tạo một xác thực được mô tả như hình bên dưới</p>
 <p align="center">
 <img src="../images/scyna-gateway.png"  width="100%">
 </p>
@@ -162,7 +163,6 @@
 <p align="center">
 <img src="../images/scyna-gateway-2.png"  width="100%">
 </p>
-
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -221,10 +221,11 @@
         <script src="../searcher.js"></script>
 
         <script src="../clipboard.min.js"></script>
-        <script src="../highlight.js"></script>
+        <script src="../theme/highlight.min.js"></script>
         <script src="../book.js"></script>
-
+        <script>hljs.highlightAll();</script>
         <!-- Custom JS scripts -->
+        <script src="../theme/highlight.min.js"></script>
 
 
     </div>

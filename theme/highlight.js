@@ -3,7 +3,7 @@
   (c) 2006-2022 undefined and other contributors
   License: BSD-3-Clause
  */
-  var hljs = (function () {
+var hljs = (function () {
     'use strict';
 
     var deepFreezeEs6 = {exports: {}};
