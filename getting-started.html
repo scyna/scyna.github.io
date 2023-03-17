@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Getting Started - Scyna Documentation</title>
+        <!-- Custom HTML head -->
+        <link rel="canonical" href="https://example.com" />
+        <meta name="description" content="Welcome to the Scyna Documentation site!">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="styles/androidstudio.min.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/styles/default.min.css">
+        <link rel="stylesheet" href="theme/styles/androidstudio.min.css">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ9KGMN282"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XZ9KGMN282');
+        </script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="introduction.html">Introdution</a></li><li class="chapter-item affix "><a href="getting-started.html" class="active">Getting Started</a></li><li class="chapter-item affix "><li class="part-title">Scyna by Example</li><li class="chapter-item "><a href="golang/overview.html"><strong aria-hidden="true">1.</strong> Golang</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="golang/hello.html"><strong aria-hidden="true">1.1.</strong> Hello</a></li><li class="chapter-item "><a href="golang/transaction-script.html"><strong aria-hidden="true">1.2.</strong> Transaction Script</a></li><li class="chapter-item "><a href="golang/active-record.html"><strong aria-hidden="true">1.3.</strong> Active Record</a></li><li class="chapter-item "><a href="golang/ddd.html"><strong aria-hidden="true">1.4.</strong> Domain Driven Design</a></li><li class="chapter-item "><a href="golang/cqrs.html"><strong aria-hidden="true">1.5.</strong> CQRS</a></li><li class="chapter-item "><a href="golang/vertical-slic.html"><strong aria-hidden="true">1.6.</strong> Vertical Slice</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">2.</strong> Java</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">2.1.</strong> Hello</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.2.</strong> Transaction Script</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.3.</strong> Vertical Slice</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.4.</strong> Domain Driven Design</div></li><li class="chapter-item "><div><strong aria-hidden="true">2.5.</strong> CQRS</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.</strong> C#</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">3.1.</strong> Hello</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.2.</strong> Transaction Script</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.3.</strong> Vertical Slice</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.4.</strong> Domain Driven Design</div></li><li class="chapter-item "><div><strong aria-hidden="true">3.5.</strong> CQRS</div></li></ol></li><li class="chapter-item "><li class="part-title">Scyna by Design</li><li class="chapter-item "><a href="design/architecture.html"><strong aria-hidden="true">4.</strong> Architecture</a></li><li class="chapter-item "><a href="design/proxy-gateway.html"><strong aria-hidden="true">5.</strong> Proxy and Gateway</a></li><li class="chapter-item "><a href="design/generator.html"><strong aria-hidden="true">6.</strong> ID Generator</a></li><li class="chapter-item "><a href="design/trace.html"><strong aria-hidden="true">7.</strong> Trace/Log</a></li><li class="chapter-item "><a href="design/scheduler.html"><strong aria-hidden="true">8.</strong> Scheduler</a></li><li class="chapter-item affix "><li class="part-title">Reference Guide</li><li class="chapter-item "><div><strong aria-hidden="true">9.</strong> Golang SDK</div></li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> Java SDK</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> C# SDK</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Scyna Documentation</h1>
+
+                    <div class="right-buttons">
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="setup-environment-for-developer"><a class="header" href="#setup-environment-for-developer">Setup environment for Developer</a></h1>
+<h3 id="hệ-điều-hành"><a class="header" href="#hệ-điều-hành">Hệ điều hành</a></h3>
+<p>Ở đây, chúng tôi khuyên bạn nên sử dụng hệ điều hành Ubuntu. Hãy trải nghiệm nó với những điều mới mẻ và sự mạnh mẽ của nó.</p>
+<h3 id="install-docker"><a class="header" href="#install-docker">Install Docker</a></h3>
+<p>[TBD: Docker là gì? dùng docker có pros/cons gì?]</p>
+<p>Bạn có thể thực hiện theo từng bước trong <a href="https://docs.docker.com/engine/install/ubuntu/">trang cài đặt</a> của DockerIO.
+Sau khi cài đặt docker bạn cần thực hiện <a href="https://docs.docker.com/engine/install/linux-postinstall/">cấp quyền</a> cho docker.
+Dưới đây, tôi đã tổng hợp lại các đoạn mã cài đặt, bạn chỉ việc copy và paste vào trong Terminal của hệ điều hành.</p>
+<pre><code class="language-shell">sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg lsb-release -y
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+sudo chown &quot;$USER&quot;:&quot;$USER&quot; /home/&quot;$USER&quot;/.docker -R
+sudo chmod g+rwx &quot;$HOME/.docker&quot; -R
+</code></pre>
+<h3 id="portainer"><a class="header" href="#portainer">Portainer</a></h3>
+<p>Portainer là một công cụ quản lý Docker dựa trên web, cho phép người dùng quản lý các container, hình ảnh, mạng, khối lưu trữ và các tài nguyên Docker khác thông qua giao diện web đơn giản và dễ sử dụng.</p>
+<p>Portainer cho phép người dùng quản lý các ứng dụng Docker một cách trực quan, giúp cho việc triển khai, cập nhật và quản lý ứng dụng trở nên dễ dàng hơn. Nó hỗ trợ nhiều nền tảng và cung cấp cho người dùng các tính năng như quản lý mạng, quản lý volume, xem lịch sử logs và thống kê sử dụng tài nguyên của container.</p>
+<p>Bạn có thể thực hiện theo các bước tại trang <a href="https://docs.portainer.io/start/install-ce/server/docker/linux">cài đặt</a> của Portainer.</p>
+<pre><code class="language-shell">docker volume create portainer_data
+docker run -d -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+</code></pre>
+<p>Sau khi cài đặt xong bạn hãy vào trang <a href="http://localhost:9000">http://localhost:9000</a> để kích hoạt Portainer và đặt mật khẩu.</p>
+<h3 id="idecode-editor"><a class="header" href="#idecode-editor">IDE/Code editor</a></h3>
+<p>Có rất nhiều sự lựa chọn Code Editor nào cho phù hợp. Ở đây tôi đưa cho bạn hai công cụ phổ biến trong các dự án PM:</p>
+<ul>
+<li><a href="https://code.visualstudio.com/download">VSCode</a> (free)</li>
+<li><a href="https://www.jetbrains.com/idea/download/">Intellij</a> (17 đồng/tháng)</li>
+</ul>
+<h3 id="data-editor"><a class="header" href="#data-editor">Data Editor</a></h3>
+<p>Giống như Code editor, Bạn sẽ có nhiều lựa chọn công cụ làm việc với dữ liệu và hệ thống dữ liệu ScyllaDB (anh em với Cassandra).</p>
+<ul>
+<li><a href="">cqlsh</a> (command line only)</li>
+<li><a href="https://dbeaver.io/download/">DBeaver Community</a> (Free or 10 đồng/tháng)
+<ul>
+<li>Nếu sử dụng bản CE thì hãy cài thêm <a href="https://medium.com/@erkansirin/adding-cassandra-jdbc-driver-to-dbeaver-community-edition-6d34fd727d20">jdbc driver</a> cho cassandra nhé.</li>
+</ul>
+</li>
+<li><a href="https://www.jetbrains.com/datagrip/download/#section=linux">Datagrip</a> (9.9 đồng/tháng)</li>
+</ul>
+<h3 id="golang"><a class="header" href="#golang">GoLang</a></h3>
+<p>[TBD: Golang là gì?]</p>
+<p>Có nhiều cách cài golang, bạn có thể cài theo bất cứ cách nào. Chúng tôi khuyên bạn nên cài bằng package của golang</p>
+<p>Bạn có thể thực hiện theo các bước trên <a href="https://go.dev/doc/install">trang cài đặt</a> của Go.dev.</p>
+<pre><code class="language-shell">wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
+rm -rf /usr/local/go &amp;&amp; tar -C /usr/local -xzf go1.20.1.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+go version
+</code></pre>
+<h2 id="scylladb"><a class="header" href="#scylladb">ScyllaDB</a></h2>
+<p>Bạn có thể cài đặt trực tiếp từ package (gói cài đặt) của ScyllaDB hoặc có thể sử dụng thông qua docker.</p>
+<h3 id="cài-đặt-trực-tiếp"><a class="header" href="#cài-đặt-trực-tiếp">Cài đặt trực tiếp</a></h3>
+<p>Bạn hãy làm theo các bước trong <a href="https://docs.scylladb.com/stable/getting-started/install-scylla/">trang cài đặt</a> của ScyllaBD</p>
+<h3 id="cài-đặt-qua-docker"><a class="header" href="#cài-đặt-qua-docker">Cài đặt qua docker</a></h3>
+<h4 id="chạy-bằng-docker-run"><a class="header" href="#chạy-bằng-docker-run">Chạy bằng docker run</a></h4>
+<p>Dưới đây là hai cách khởi chạy ScyllaDB bằng docker. Mặc định khi khởi động máy tính sẽ bật. Bạn có thể tắt khi không sử dụng đến.</p>
+<pre><code class="language-shell">docker run -d -p 9042:9042 --name scylla -d scylladb/scylla --restart=always
+</code></pre>
+<h4 id="chạy-bằng-docker-compose"><a class="header" href="#chạy-bằng-docker-compose">Chạy bằng docker compose</a></h4>
+<pre><code class="language-xml">version: '3'
+
+services:
+  db:
+    image: scylladb/scylla:5.1
+    ports:
+      - &quot;9042:9042&quot; #Default
+      - &quot;9142:9142&quot; #SSL
+      - &quot;10000:10000&quot; #Scylla REST API
+      - &quot;9180:9180&quot; #Prometheus API
+    volumes:
+      #- ./data/micro-data:/var/lib/scylla
+      # - ./scylla.yaml:/etc/scylla/scylla.yaml
+    restart: always
+</code></pre>
+<h2 id="cài-đặt-nats-server"><a class="header" href="#cài-đặt-nats-server">Cài đặt NATS Server</a></h2>
+<p>NATS Server cũng cung cấp nhiều cách để bạn có thể sử dụng NATS. Bạn có thể tham khảo tại <a href="https://docs.nats.io/running-a-nats-service/introduction/installation">trang cài đặt</a> của NATS.</p>
+<h3 id="cài-đặt-trực-tiếp-1"><a class="header" href="#cài-đặt-trực-tiếp-1">Cài đặt trực tiếp</a></h3>
+<pre><code class="language-shell">wget https://github.com/nats-io/nats-server/releases/download/v2.9.14/nats-server-v2.9.14-linux-amd64.tar.gz
+tar -xvf nats-server-v2.9.14-linux-amd64.tar.gz
+./nats-server-v2.9.14-linux-amd64/nats-server  -D -p 4222 -js -n jetstream -sd jetstream
+</code></pre>
+<h3 id="cài-đặt-bằng-docker"><a class="header" href="#cài-đặt-bằng-docker">Cài đặt bằng docker</a></h3>
+<h4 id="cài-bằng-docker-run"><a class="header" href="#cài-bằng-docker-run">Cài bằng docker run</a></h4>
+<pre><code class="language-shell">docker run --network host -p 4222:4222 nats -js
+</code></pre>
+<h4 id="cài-bằng-docker-compose"><a class="header" href="#cài-bằng-docker-compose">Cài bằng docker compose</a></h4>
+<pre><code class="language-xml">version: '3'
+services:
+  nats:
+    image: nats:2.9.14
+    command: -js -m 8222
+    restart: always
+    ports:
+      - 4222:4222
+</code></pre>
+<h2 id="cài-đặt-scyna"><a class="header" href="#cài-đặt-scyna">Cài đặt Scyna</a></h2>
+<h3 id="engine"><a class="header" href="#engine">Engine</a></h3>
+<p>[TBD]</p>
+<h3 id="example"><a class="header" href="#example">Example</a></h3>
+<p>[TBD]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="golang/overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="golang/overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="theme/highlight.min.js"></script>
+        <script src="book.js"></script>
+        <script>hljs.highlightAll();</script>
+        <!-- Custom JS scripts -->
+        <script src="theme/highlight.min.js"></script>
+    </div>
+    </body>
+</html>
